@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ratiss-navier"
+version = "0.1.0"
+description = "Navier-Stokes dans lunivers RATISS : SPH 3D + sonde quantique, chasse au blowup"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "matplotlib>=3.6", "pillow>=9"]
+license = {text = "MIT"}
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+include = ["navier*"]
