@@ -21,6 +21,20 @@ inédite (C(t) vs vorticité). On regarde si la même chose se produit. MIT.
 
 ![blowup](demos/blowup.gif)
 
+## 🔥 v0.2 : le blowup est RÉEL (saturation = numérique)
+
+| Run (T=2.5) | Ω_max | C_min | vs v0.1 |
+|---|---|---|---|
+| A (ν=0.001, n=3000) | 11259 | 0.465 | ×2.9 ✅ |
+| B (BOOST) | **19894** | 0.379 | ×5.2 🔥 |
+| C (contrôle ν=0.01, n=3000) | 9192 | 0.715 | ×2.4 |
+
+La résolution seule fait ×2.4 → la saturation v0.1 était numérique.
+Fit B : exponentiel raide (0.54), pas de 1/(T*-t) (R=-0.34) : explosif,
+pas (encore) singulier. Sonde : 0.52→0.38.
+
+![v0.2](demos/v02_comparatif.png)
+
 ## 🔬 Notre méthode (vs OpenAI)
 
 - Eux : construction analytique (cœur τ^1/2 × τ^(1/2-h), vitesses τ^(-1/2-h),

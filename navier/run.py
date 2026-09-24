@@ -3,13 +3,13 @@ import numpy as np
 
 
 def run(n=1500, nu=0.01, T=2.5, force=True, n_pairs=8, seed=7, sample=20,
-        quiet=False, snap_every=0):
+        quiet=False, snap_every=0, A_in=6.0, A_sw=4.0, A_pulse=10.0):
     from .sph import Flow
     from .vortex import Forcing
     from .qtracers import Tracers
     fl = Flow(n=n, nu=nu, seed=seed)
     fl.settle()
-    fc = Forcing(active=force)
+    fc = Forcing(active=force, A_in=A_in, A_sw=A_sw, A_pulse=A_pulse)
     tr = Tracers(n)
     d = np.linalg.norm(fl.X[:, :2] - 2.0, axis=1)
     inner = np.where(d < 0.9)[0][:n_pairs]
