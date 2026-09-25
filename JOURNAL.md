@@ -28,3 +28,8 @@ Critère chef (Ω>2×3829=7658) : DÉPASSÉ (11259). Fit B : exp raide (0.54),
 toujours pas de 1/(T*-t) (R=-0.34) → croissance explosive mais pas de
 singularité prouvée. Sonde : 0.52→0.38 (répond, pas encore 0.2).
 B pic à 19894 puis 13166 : le vortex éclate (reconnexion ?) — à investiguer.
+
+## VISUEL-6000 : simu lourde n=6000 (2026-09-25)
+Run ciné 3 chunks (ν=0.001 BOOST) : Ω pic ~40000 (t≈1.5) puis 27443,
+C : 1→0.27. Rendu 4 panneaux (coupes + quiver + 3D + courbes).
+`demos/visuel6000.gif` (1.9 Mo, 28 frames). Record absolu du labo. 🔥

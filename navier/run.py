@@ -20,6 +20,10 @@ def run(n=1500, nu=0.01, T=2.5, force=True, n_pairs=8, seed=7, sample=20,
     while fl.t < T:
         dt = fl.step(f_ext=fc)
         tr.step(np.linalg.norm(fl.om, axis=1), dt)
+        if not (np.isfinite(fl.V).all() and np.isfinite(fl.rho).all()):
+            serie.append({'t': round(fl.t, 4), 'CRASH': True})
+            print(f'[run] CRASH numerique a t={fl.t:.3f}', flush=True)
+            break
         if s % sample == 0:
             serie.append({'t': round(fl.t, 4), 'vmax': round(fl.vmax(), 4),
                           'Om': round(fl.enstrophy(), 4),
@@ -27,7 +31,8 @@ def run(n=1500, nu=0.01, T=2.5, force=True, n_pairs=8, seed=7, sample=20,
                           'C': round(float(np.mean([tr.concurrence(a)
                                                     for a in watch])), 4)})
         if snap_every and s % snap_every == 0:
-            snaps.append({'X': fl.X.copy(), 'om': np.linalg.norm(fl.om, axis=1),
+            snaps.append({'X': fl.X.copy(), 'V': fl.V.copy(),
+                          'om': np.linalg.norm(fl.om, axis=1),
                           't': round(fl.t, 3)})
         s += 1
     if not quiet:
