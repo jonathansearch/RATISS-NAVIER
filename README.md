@@ -35,6 +35,15 @@ pas (encore) singulier. Sonde : 0.52→0.38.
 
 ![v0.2](demos/v02_comparatif.png)
 
+## ⚡ v0.3 : ν/100 — cascade d'éclatements
+
+RUN-D (ν=0.0001, n=3000, BOOST) : Ω_max=**28696**, C_min=**0.296**.
+Objectif 50k : partiel — mais **cascade** (15k→11k→19k→28.7k→20.6k) :
+reconnexions multiples, pas un seul éclatement. Leçon : la résolution
+domine (n6000/ν.001=40k > n3000/ν.0001=28.7k). Prochain : n=6000 + ν/100.
+
+![éclatement](demos/eclatement.gif)
+
 ## 🔬 Notre méthode (vs OpenAI)
 
 - Eux : construction analytique (cœur τ^1/2 × τ^(1/2-h), vitesses τ^(-1/2-h),
