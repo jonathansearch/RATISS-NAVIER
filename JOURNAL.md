@@ -40,3 +40,7 @@ Objectif 50k/C 0.2 : PARTIEL. Découverte : **cascade** (15k→11k→19k→
 28.7k→20.6k) = reconnexions multiples. Fit exp 0.66, pas de 1/(T*-t).
 Leçon : résolution > viscosité (n6000ν.001=40k > n3000ν.0001=28.7k).
 GIF : `demos/eclatement.gif`. Ticket V02 CLOS, V03 TESTÉ.
+
+## BOSS FINAL : n=6000 + ν/100 (2026-09-25)
+Ω_max=**72122** (objectif 50k DÉPASSÉ ✅), C_min=0.27, E=138.3, 0 crash.
+Le combo résolution×viscosité libère le monstre. Scène 3D : boss_3d.html.

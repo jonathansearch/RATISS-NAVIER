@@ -16,11 +16,15 @@ def main():
     t0 = float(a[a.index('--t0') + 1])
     t1 = float(a[a.index('--t1') + 1])
     fresh = '--fresh' in a
+    nu = float(a[a.index('--nu') + 1]) if '--nu' in a else 0.001
+    tag = a[a.index('--tag') + 1] if '--tag' in a else 'visual'
+    PK = D + tag + '_state.pkl'
+    FS, FN = D + tag + '_serie.json', D + tag + '_snaps.json'
     from navier.sph import Flow
     from navier.vortex import Forcing
     from navier.qtracers import Tracers
     if fresh or not os.path.exists(PK):
-        fl = Flow(n=6000, nu=0.001, seed=7)
+        fl = Flow(n=6000, nu=nu, seed=7)
         fl.settle()
         fc = Forcing(A_in=8.0, A_sw=6.0, A_pulse=14.0)
         tr = Tracers(6000)
@@ -31,17 +35,22 @@ def main():
         watch = [int(x) for x in inner]
         serie, snaps, s = [], [], 0
         pickle.dump({'fl': fl, 'tr': tr, 'watch': watch, 's': 0}, open(PK, 'wb'))
-        json.dump([], open(D + 'visual_serie.json', 'w'))
-        json.dump([], open(D + 'visual_snaps.json', 'w'))
+        json.dump([], open(FS, 'w'))
+        json.dump([], open(FN, 'w'))
     else:
         st = pickle.load(open(PK, 'rb'))
         fl, tr, watch, s = st['fl'], st['tr'], st['watch'], st['s']
         fc = Forcing(A_in=8.0, A_sw=6.0, A_pulse=14.0)
-        serie = json.load(open(D + 'visual_serie.json'))
-        snaps = json.load(open(D + 'visual_snaps.json'))
+        serie = json.load(open(FS))
+        snaps = json.load(open(FN))
     n0 = s
+    crash = False
     while fl.t < t1:
         dt = fl.step(f_ext=fc)
+        if not (np.isfinite(fl.V).all() and np.isfinite(fl.rho).all()):
+            print(f'[boss] CRASH a t={fl.t:.3f}', flush=True)
+            crash = True
+            break
         tr.step(np.linalg.norm(fl.om, axis=1), dt)
         if s % 10 == 0:
             serie.append({'t': round(fl.t, 4), 'vmax': round(fl.vmax(), 4),
@@ -54,9 +63,9 @@ def main():
                           't': round(fl.t, 3)})
         s += 1
     pickle.dump({'fl': fl, 'tr': tr, 'watch': watch, 's': s}, open(PK, 'wb'))
-    json.dump(serie, open(D + 'visual_serie.json', 'w'))
-    json.dump(snaps, open(D + 'visual_snaps.json', 'w'))
-    print(f'[visuel] t={fl.t:.2f} steps={s - n0} Om={serie[-1]["Om"]} '
+    json.dump(serie, open(FS, 'w'))
+    json.dump(snaps, open(FN, 'w'))
+    print(f'[{tag}] t={fl.t:.2f} crash={crash} steps={s - n0} Om={serie[-1]["Om"]} '
           f'C={serie[-1]["C"]} frames={len(snaps)}', flush=True)
 
 
