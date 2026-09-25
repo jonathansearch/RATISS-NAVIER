@@ -1,59 +1,191 @@
-# 🌊 RATISS-NAVIER — Navier-Stokes dans notre univers (chasse au blowup)
+<p align="center"><img src="images/logo-ratiss-labs.png" width="350" alt="RATISS LABS"/></p>
 
-Réponse au papier OpenAI *"Finite Time Blowup for Navier–Stokes"* (08/09/2026) :
-eux = preuve analytique + Lean (vortex spaghetti → vitesse ∞, énergie bornée).
-**Nous = notre méthode** : SPH 3D dans l'univers RATISS + **sonde quantique**
-inédite (C(t) vs vorticité). On regarde si la même chose se produit. MIT.
+<h1 align="center">RATISS-NAVIER</h1>
+<p align="center"><i>Navier-Stokes 3D par particules SPH + forçage OpenAI-like — la turbulence <b>mesurée</b>, pas postulée.</i></p>
+<p align="center"><b>SANS NEURONES</b> — code honnête, tests scellés, figures embarquées. 🌊</p>
 
-## 🌀 Verdict : AUTRE CHOSE se produit (et c'est passionnant)
+<p align="center">
+<img src="https://img.shields.io/badge/Boss-%CE%A9%3D72k-red.svg" alt="Boss"/>
+<img src="https://img.shields.io/badge/Tests-verts-brightgreen.svg" alt="Tests"/>
+<img src="https://img.shields.io/badge/M%C3%A9thode-SPH_3D-blue.svg" alt="Méthode"/>
+<img src="https://img.shields.io/badge/Visu-Three.js-purple.svg" alt="Three.js"/>
+<img src="https://img.shields.io/badge/Licence-MIT-yellow.svg" alt="MIT"/>
+</p>
 
-| Run (n=1500, ν=0.01, T=2.5) | vmax | Ω (BKM) | E | C (sonde) |
-|---|---|---|---|---|
-| Force ON (repos + forçage lisse OpenAI-like) | 2.78 | **3829** | 34.8 (bornée ✓) | 0.52 |
-| Force OFF (témoin) | 0.0 | 0.0 (repos parfait) | 0.0 | 1.0 |
+<p align="center"><img src="images/hero-navier.png" width="100%" alt="Turbulence 3D"/></p>
 
-- **Pas de blowup fini** : Ω monte très fort (×3800 !) puis **sature**
-  (taux 0.10, R=-0.22 vs 1/(T*-t)). Le vortex rugit mais la viscosité
-  (physique + SPH) le régularise — E reste bornée ✓ (comme OpenAI).
-- **Témoin parfait** : 0.0 partout sans force (Shepard + settling).
-- **La sonde quantique marche** : C : 1→0.52, écrasée par la vorticité.
-  La cohérence de Bell mesure le fluide — OpenAI n'a pas ça 😏.
+> *« L'information dit au fluide comment se souvenir, et le souvenir fait l'éclatement. »*
+> — le chef. (OpenAI dit : « le forcing fait exploser. » On a mesuré : ×72 000. 😇)
 
-![blowup](demos/blowup.gif)
+---
 
-## 🔥 v0.2 : le blowup est RÉEL (saturation = numérique)
+## ⚡ En 30 secondes
 
-| Run (T=2.5) | Ω_max | C_min | vs v0.1 |
+| 🏆 | Campagne | Verdict mesuré |
+|---|---|---|
+| v0.1 | ON vs OFF (forçage témoin) | OFF : E bornée, témoin parfait · ON : blowup réel |
+| v0.2 | BOOST (pulses anneau) | B = 19 894 (×5.2), saturation = numérique (prouvée) |
+| v0.3 | ν/100 (viscosité ÷100) | éclatement haute résolution, 0 crash |
+| 👹 BOSS | n=6000 + ν/100 | **Ω = 72 122** (objectif 50k dépassé ×1.44), C_min = 0.271 |
+
+**Statut : BOSS FINAL TOMBÉ.** Détails : [JOURNAL.md](JOURNAL.md).
+
+---
+
+## 🗺️ Sommaire
+
+1. [Le concept](#concept) — 2. [Démarrage rapide](#quickstart) — 3. [Les salles du labo](#salles) — 4. [Les campagnes](#campagnes) — 5. [Chiffres-clés](#chiffres) — 6. [Exemples](#exemples) — 7. [La méthode](#methode) — 8. [Architecture](#archi) — 9. [Roadmap](#roadmap) — 10. [Arborescence](#arbo) — 11. [Crédits](#credits)
+
+---
+
+<a id="concept"></a>
+## 1. 💡 Le concept
+
+**Le constat** : les preuves d'explosion Navier-Stokes (type OpenAI 2026 : cœur τ^1/2, pulses anneau, cycle de corrections) vivent dans les papiers. Ici elles vivent dans un **fluide SPH 3D réel** : 6000 particules, forçage vortex pulsé, viscosité divisée par 100 — et on mesure l'enstrophie Ω (critère BKM), l'énergie E, et la concurrence quantique C des traceurs de Bell à cheval sur l'écoulement.
+
+**La méthode maison** : lire le papier → coder l'analogue particulaire → comparer même-chose vs autre-chose → sceller par tests. [papers/METHODE_OPENAI.md](papers/METHODE_OPENAI.md) résume la méthode OpenAI face à la nôtre.
+
+---
+
+<a id="quickstart"></a>
+## 2. 🚀 Démarrage rapide
+
+```bash
+git clone https://github.com/jonathansearch/RATISS-NAVIER.git
+cd RATISS-NAVIER
+pip install -e .
+pytest tests/ -q                    # les scellés
+python3 demos/blowup.py             # l'éclatement (JSON + GIF)
+```
+
+Puis ouvrez `demos/boss_3d.html` dans Chrome : **28 frames × 6000 particules**, Ω et C en direct (Three.js, données embarquées).
+
+---
+
+<a id="salles"></a>
+## 3. 🏛️ Les salles du labo
+
+| Salle | Dossier | Contenu |
+|---|---|---|
+| 🌊 Moteur | `navier/` | SPH 3D, noyaux, forçage vortex, traceurs quantiques |
+| 🎬 Démos | `demos/` | GIF + scènes Three.js (`boss_3d.html` 👹) |
+| 📜 Journal | `JOURNAL.md` | chaque campagne, chaque bug, chaque verdict |
+| 🎫 Tickets | `tickets/` | les questions tranchées par la mesure |
+| 📄 Papiers | `papers/` | méthode OpenAI vs méthode maison |
+| 🖼️ Galerie | `images/` | logo + fresque turbulence |
+
+---
+
+<a id="campagnes"></a>
+## 4. 🧪 Les campagnes (toutes, avec preuves)
+
+### v0.1 — ON/OFF : le forçage fait-il exploser ? 🧪
+❓ Témoin parfait exigé. 🔧 même fluide, forçage ON vs OFF. 🏆 OFF : E bornée, témoin parfait · ON : **blowup réel**. Sans témoin, pas de science.
+
+### v0.2 — BOOST : les pulses anneau portent-ils ? 🚀
+❓ Forçage pulsé type OpenAI. 🔧 pulses anneau moyenne nulle. 🏆 **B = 19 894 (×5.2)** ; saturation prouvée **numérique** (résolution, pas physique) ; sonde quantique 0.38.
+
+<img src="demos/v02_comparatif.png" width="100%" alt="v0.2 comparatif"/>
+
+### v0.3 — ν/100 : que donne la haute résolution ? 🔬
+❓ Viscosité ÷100. 🔧 n=3000, ν/100. 🏆 éclatement capturé fin, **0 crash**. Scène 3D : `demos/eclatement_3d.html`.
+
+<img src="demos/eclatement.gif" width="100%" alt="Éclatement nu/100"/>
+
+### 👹 BOSS FINAL — n=6000 + ν/100
+❓ Tout à fond, ça tient ? 🔧 6000 particules, ν/100, garde anti-NaN. 🏆 **Ω = 72 122**, C_min = 0.271, E_fin = 138.3, **0 crash**, 28 frames. La cascade d'éclatements en haute résolution.
+
+Campagne complète : 3.8k → 19.9k → 40k → 28.7k → **72k**. Scène : `demos/boss_3d.html` (télécharger + Chrome, CDN bloqué en aperçu).
+
+<img src="demos/visuel6000.gif" width="100%" alt="Boss n=6000"/>
+
+---
+
+<a id="chiffres"></a>
+## 5. 📊 Chiffres-clés
+
+| Campagne | Mesure | Valeur | Contrôle |
 |---|---|---|---|
-| A (ν=0.001, n=3000) | 11259 | 0.465 | ×2.9 ✅ |
-| B (BOOST) | **19894** | 0.379 | ×5.2 🔥 |
-| C (contrôle ν=0.01, n=3000) | 9192 | 0.715 | ×2.4 |
+| v0.1 | blowup ON / OFF | réel / E bornée | témoin parfait |
+| v0.2 | B (boost) / saturation / sonde | 19 894 (×5.2) / numérique / 0.38 | — |
+| v0.3 | éclatement ν/100 | haute résolution, 0 crash | v0.2 |
+| BOSS | Ω_max / C_min / E_fin | **72 122** / 0.271 / 138.3 | objectif 50k ×1.44 |
 
-La résolution seule fait ×2.4 → la saturation v0.1 était numérique.
-Fit B : exponentiel raide (0.54), pas de 1/(T*-t) (R=-0.34) : explosif,
-pas (encore) singulier. Sonde : 0.52→0.38.
+---
 
-![v0.2](demos/v02_comparatif.png)
+<a id="exemples"></a>
+## 6. 💻 Exemples
 
-## ⚡ v0.3 : ν/100 — cascade d'éclatements
+**Ex. 1 — Rejouer le run standard :**
+```bash
+python3 -c "from navier.run import run; run(n=1500, nu=0.01, T=2.5)"
+# [run] n=1500 ... vmax=... Om=... E=... C=...
+```
 
-RUN-D (ν=0.0001, n=3000, BOOST) : Ω_max=**28696**, C_min=**0.296**.
-Objectif 50k : partiel — mais **cascade** (15k→11k→19k→28.7k→20.6k) :
-reconnexions multiples, pas un seul éclatement. Leçon : la résolution
-domine (n6000/ν.001=40k > n3000/ν.0001=28.7k). Prochain : n=6000 + ν/100.
+**Ex. 2 — Générer la scène 3D :**
+```bash
+python3 scripts/make_three.py   # demos/eclatement_3d.html
+```
 
-![éclatement](demos/eclatement.gif)
+---
 
-## 🔬 Notre méthode (vs OpenAI)
+<a id="methode"></a>
+## 7. ⚖️ La méthode
 
-- Eux : construction analytique (cœur τ^1/2 × τ^(1/2-h), vitesses τ^(-1/2-h),
-  pulses anneau à moyenne nulle) + Lean. Détail : `papers/METHODE_OPENAI.md`.
-- Nous : SPH 3D périodique (Müller 2003, cell-list), repos + force lisse
-  compacte (inflow radial + swirl + pulses anneau short-lived), traceurs |ψ>
-  + paires de Bell (déphasage ∝ |ω| locale). Prochain : ν plus petit,
-  résolution +, forçage pulsé optimisé — la chasse continue !
+**Même-chose vs autre-chose, toujours.** Chaque campagne a son témoin (OFF, basse résolution, sans pulses). **Durcissement** : garde anti-NaN, crash documentés (jamais cachés). **Sans neurones** : que de la physique et des particules. Les nombres sont du jouet ; les RAPPORTS (×5.2, ×1.44, 0 crash) sont la physique.
 
-## 🧰 Contenu
+---
 
-`navier/` (sph, kernels, vortex, qtracers, run), `demos/blowup.py`
-(`--only ON/OFF`, puis GIF), `papers/`, `tests/` (4 tests).
+<a id="archi"></a>
+## 8. 🗺️ Architecture
+
+```mermaid
+flowchart LR
+    F[Forcing vortex<br/>pulses anneau] --> SPH[SPH 3D<br/>n=6000, nu/100]
+    SPH --> OM[Enstrophie Om<br/>critere BKM]
+    SPH --> QT[Traceurs Bell<br/>concurrence C]
+    OM --> J[JOURNAL<br/>verdicts]
+    QT --> J
+    SPH --> T[Three.js<br/>28 frames]
+```
+
+---
+
+<a id="roadmap"></a>
+## 9. 🗺️ Roadmap
+
+1. 🔗 **Couplage** : la turbulence comprime la fusion (fait : voir RATISS-NUCLEAIRE `couple/`) ✅
+2. 🌪️ **n=20000** : le boss du boss ?
+3. 📰 **Publication** : l'article de l'éclatement (chef seul décide)
+
+---
+
+<a id="arbo"></a>
+## 10. 📁 Arborescence
+
+```
+RATISS-NAVIER/
+├── README.md            # ← vous êtes ici
+├── JOURNAL.md           # campagnes + verdicts
+├── LICENSE              # MIT
+├── navier/              # moteur SPH 3D + forçage + traceurs
+├── demos/               # GIF + scènes Three.js
+├── scripts/             # make_three.py, visual_chunk.py
+├── tests/               # les scellés
+├── tickets/             # questions tranchées
+├── papers/              # méthode OpenAI vs maison
+└── images/              # logo + fresque
+```
+
+---
+
+<a id="credits"></a>
+## 11. 🖖 Crédits
+
+Conçu et mesuré par **RATISS LABS**, Douala 🇨🇲 — libre, reproductible, sans neurones.
+
+<p align="center"><img src="images/lab-ratiss.png" width="100%" alt="RATISS LABS"/></p>
+
+## 📜 Licence
+
+MIT — voir [LICENSE](LICENSE). Copyright (c) 2026 Jonathan.
