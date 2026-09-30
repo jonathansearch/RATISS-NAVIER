@@ -1,6 +1,8 @@
 """Tests RATISS-NAVIER : repos stable, forçage -> vortex, sonde quantique. MIT."""
+import os as _os, pathlib as _pl  # RATISS: chemins portables (dépôts clonés côte à côte, ou RATISS_HOME)
+_RATISS_HOME = _os.environ.get('RATISS_HOME') or str(_pl.Path(__file__).resolve().parents[2])
 import sys
-sys.path.insert(0, '/home/user/RATISS-NAVIER')
+sys.path.insert(0, (_RATISS_HOME + '/RATISS-NAVIER'))
 
 
 def test_repos_stable():

@@ -1,6 +1,8 @@
 """Rendu ciné n=6000 : coupes + quiver + 3D + courbes. MIT."""
+import os as _os, pathlib as _pl  # RATISS: chemins portables (dépôts clonés côte à côte, ou RATISS_HOME)
+_RATISS_HOME = _os.environ.get('RATISS_HOME') or str(_pl.Path(__file__).resolve().parents[2])
 import sys
-sys.path.insert(0, '/home/user/RATISS-NAVIER')
+sys.path.insert(0, (_RATISS_HOME + '/RATISS-NAVIER'))
 import json
 import numpy as np
 import matplotlib
@@ -8,7 +10,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
-D = '/home/user/RATISS-NAVIER/demos/'
+D = (_RATISS_HOME + '/RATISS-NAVIER/demos/')
 snaps = json.load(open(D + 'visual_snaps.json'))
 serie = json.load(open(D + 'visual_serie.json'))
 NF = len(snaps)

@@ -1,12 +1,14 @@
 """Chasse au blowup : force ON vs OFF + fit BKM + GIF.
 Usage : --only ON | --only OFF | (rien = gif depuis snaps.json). MIT."""
+import os as _os, pathlib as _pl  # RATISS: chemins portables (dépôts clonés côte à côte, ou RATISS_HOME)
+_RATISS_HOME = _os.environ.get('RATISS_HOME') or str(_pl.Path(__file__).resolve().parents[2])
 import sys
-sys.path.insert(0, '/home/user/RATISS-NAVIER')
+sys.path.insert(0, (_RATISS_HOME + '/RATISS-NAVIER'))
 import json
 import os
 import numpy as np
 
-D = '/home/user/RATISS-NAVIER/demos/'
+D = (_RATISS_HOME + '/RATISS-NAVIER/demos/')
 
 
 def fit_bkm(ts, Om):

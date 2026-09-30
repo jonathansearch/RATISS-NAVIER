@@ -1,8 +1,10 @@
 """Génère demos/eclatement_3d.html : scène Three.js interactive (données embarquées).
 Usage : python3 scripts/make_three.py. MIT."""
+import os as _os, pathlib as _pl  # RATISS: chemins portables (dépôts clonés côte à côte, ou RATISS_HOME)
+_RATISS_HOME = _os.environ.get('RATISS_HOME') or str(_pl.Path(__file__).resolve().parents[2])
 import json
 
-D = '/home/user/RATISS-NAVIER/demos/'
+D = (_RATISS_HOME + '/RATISS-NAVIER/demos/')
 snaps = json.load(open(D + 'snaps_v03.json'))
 serie = [p for p in json.load(open(D + 'v03_NU100.json'))['serie'] if 'CRASH' not in p]
 frames = []

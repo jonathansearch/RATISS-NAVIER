@@ -1,13 +1,15 @@
 """Run visuel n=6000 par chunks (pickle reprise). Usage :
 visual_chunk.py --t0 0 --t1 0.85 [--fresh]. MIT."""
+import os as _os, pathlib as _pl  # RATISS: chemins portables (dépôts clonés côte à côte, ou RATISS_HOME)
+_RATISS_HOME = _os.environ.get('RATISS_HOME') or str(_pl.Path(__file__).resolve().parents[2])
 import sys
-sys.path.insert(0, '/home/user/RATISS-NAVIER')
+sys.path.insert(0, (_RATISS_HOME + '/RATISS-NAVIER'))
 import json
 import os
 import pickle
 import numpy as np
 
-D = '/home/user/RATISS-NAVIER/demos/'
+D = (_RATISS_HOME + '/RATISS-NAVIER/demos/')
 PK = D + 'visual_state.pkl'
 
 
