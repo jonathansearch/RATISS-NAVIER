@@ -66,3 +66,8 @@ Le combo résolution×viscosité libère le monstre. Scène 3D : boss_3d.html.
 - `campagnes/commissaire-1/` : les 9 runs de la campagne 1 + script (chemins portables) + manifeste (commande + SHA par run) + rapport.
 - `campagnes/dipoles-v3/` : témoins T0/T1/T2 → STOP en suspens, runs hors critères validés (voir `STATUT.md`).
 - MISSION 3D, extensions : E3b (ζ propre) 0,12–0,19 %, 0 sans poussière, plat en n → 🅱 à la lettre (🅾 refusé : ne fond pas).
+
+## 02/10/2026 (soir) — diagnostic de l'instrument ω
+- ω SPH : 20–45 % de l'enstrophie théorique, non convergé ; Ω tardif en partie fabriqué par le schéma ; ζ = rapport de mélange (poussière isotrope = 2/3).
+- **T0 n'est pas une fuite** : la 3D d'un dipôle seul + poussière est cohérente à l'échelle de la demi-boîte (ζ moyenné 0,12), la poussière seule ne bouge pas. Hypothèse : instabilité 3D de paire de tourbillons.
+- Proposition rév. 4 déposée, non scellée. Détail : `campagnes/dipoles-v3/diagnostic/DIAGNOSTIC-OMEGA.md`.
