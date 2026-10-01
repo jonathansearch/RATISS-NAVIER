@@ -1,0 +1,50 @@
+{
+ "campagne": "Commissaire NAVIER — campagne 1 (source → amplificateur → compteur)",
+ "runs": [
+  {
+   "tag": "AMP_cut1",
+   "commande": "python3 campagnes/commissaire-1/commissaire.py AMP_cut1 1000 0.01 7 1.0 1 2.5",
+   "sha256": "b31b6744f7fd252f36d482915b82c0b0864fe6d60d55eca94d841f0b5306e8b3"
+  },
+  {
+   "tag": "AMP_cut1_nu0001",
+   "commande": "python3 campagnes/commissaire-1/commissaire.py AMP_cut1_nu0001 1000 0.001 7 1.0 1 2.5",
+   "sha256": "36a4e36ebed037f62454c7af4de92628cc311e1e4fca1f1a32529006581827f5"
+  },
+  {
+   "tag": "CPT_n1000",
+   "commande": "python3 campagnes/commissaire-1/commissaire.py CPT_n1000 1000 0.01 7 -1.0 1 2.5",
+   "sha256": "07b6bbe07fb4ceec6ab3e8b24e4604113d9ca9323bfb4b948623cbb21e7676e7"
+  },
+  {
+   "tag": "CPT_n1500",
+   "commande": "python3 campagnes/commissaire-1/commissaire.py CPT_n1500 1500 0.01 7 -1.0 1 2.5",
+   "sha256": "146ebd30c7cdf73c7dc93665b724bf2bf2479dc260fa858f55b0f8fb614198ae"
+  },
+  {
+   "tag": "CPT_n500",
+   "commande": "python3 campagnes/commissaire-1/commissaire.py CPT_n500 500 0.01 7 -1.0 1 2.5",
+   "sha256": "e98038ece56defffe1927c2cee492eeeba590e163aa7ce60ffd9d400c525480d"
+  },
+  {
+   "tag": "GRN_s8",
+   "commande": "python3 campagnes/commissaire-1/commissaire.py GRN_s8 1000 0.01 8 -1.0 1 2.5",
+   "sha256": "7ff8828553bda1122a5295e7efe91b5cb92f47d63cc652fca38b11420d789f12"
+  },
+  {
+   "tag": "POL_nu0001",
+   "commande": "python3 campagnes/commissaire-1/commissaire.py POL_nu0001 1000 0.001 7 -1.0 1 2.5",
+   "sha256": "4f645a3696c60f14b87615c7413dc3ca4a1ccdea1fab4ed2e4e2851f55cc93d7"
+  },
+  {
+   "tag": "POL_nu01",
+   "commande": "python3 campagnes/commissaire-1/commissaire.py POL_nu01 1000 0.1 7 -1.0 1 2.5",
+   "sha256": "f2c8c8a25761ac2133525c534d28b6f9706883a9fd250f2c524311d77d23f8c1"
+  },
+  {
+   "tag": "SRC_off",
+   "commande": "python3 campagnes/commissaire-1/commissaire.py SRC_off 500 0.01 7 -1.0 0 1.5",
+   "sha256": "c3f0d2fb7601f16c015561927fc69d6be325e09c1864af104f1d6eb0e975c7fe"
+  }
+ ]
+}
