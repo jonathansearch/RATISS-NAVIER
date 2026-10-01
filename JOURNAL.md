@@ -60,3 +60,9 @@ Le combo résolution×viscosité libère le monstre. Scène 3D : boss_3d.html.
 - T3 : pic réel à t=1,176 (1,146 = aliasing de la grille à 0,06), indépendant de la coupure (+0,05 → −0,006), non convergent en n (1100 : 1,110) → artefact numérique, quarantaine. Annoté dans `campagnes/commissaire-3d/MANIFESTE-RUNS.json`.
 - **La grille de sortie fait partie de l'instrument** — sœur jumelle de R8 : on ne mesure que ce qui déborde du script, et on le mesure là où il est vraiment.
 - Brief V3 rév. 3 + annexe des paramètres figés + `dipoles.py` scellés (`campagnes/dipoles-v3/SCEAU-V3.sha256`) avant tout run.
+
+## 02/10/2026 (suite) — campagne 1 versée, témoins V3, extensions E3b
+
+- `campagnes/commissaire-1/` : les 9 runs de la campagne 1 + script (chemins portables) + manifeste (commande + SHA par run) + rapport.
+- `campagnes/dipoles-v3/` : témoins T0/T1/T2 → STOP en suspens, runs hors critères validés (voir `STATUT.md`).
+- MISSION 3D, extensions : E3b (ζ propre) 0,12–0,19 %, 0 sans poussière, plat en n → 🅱 à la lettre (🅾 refusé : ne fond pas).
