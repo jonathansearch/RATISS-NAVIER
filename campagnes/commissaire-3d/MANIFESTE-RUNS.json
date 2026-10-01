@@ -124,5 +124,30 @@
    "sha256": "f4e5eb34ad651ea6ead780f223a8ba04240e60917787fbf2a07b4e346eb35946"
   }
  ],
- "verdict_lettre": "🅱"
+ "verdict_lettre": "🅱",
+ "annotations": [
+  {
+   "date": "2026-10-01",
+   "append_only": true,
+   "statut_verdict": "non tranché (instruments invalidés après coup) — ζ contaminé par le meuble, M2/M3 positifs dans les témoins (R8)"
+  },
+  {
+   "date": "2026-10-02",
+   "append_only": true,
+   "objet": "T3 diagnostic (4 runs hors manifeste, non conservés)",
+   "configuration": "implicite : Flow(n, nu=0.01, seed=7), settle(), Etreinte plate sèche, t_cut 1.00 ou 1.05 ; aucune ligne de poussière dans le script (donc sans poussière dans le code, pas seulement par déduction), poussière non écrite dans les sorties",
+   "resultats": {
+    "cut1.00_n1000": "pic t=1.176",
+    "cut1.05_n1000": "pic t=1.170",
+    "cut1.00_n900": "pic t=1.176",
+    "cut1.00_n1100": "pic t=1.110 faible"
+   },
+   "conclusion": "pic réel 1.176 (1.146 = aliasing grille 0.06) ; indépendant du geste de coupure ; non convergent en n → artefact numérique, quarantaine",
+   "lecons": [
+    "la grille de sortie fait partie de l instrument",
+    "un défaut du code ne compte pas comme preuve",
+    "un facteur sans base figée est incomparable"
+   ]
+  }
+ ]
 }

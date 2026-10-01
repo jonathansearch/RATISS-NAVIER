@@ -54,3 +54,9 @@ Le combo résolution×viscosité libère le monstre. Scène 3D : boss_3d.html.
 - **R8 — on ne mesure que ce qui déborde du script.** Seul signal propre : la part de vorticité hors meuble E3 = 0,11 → 0,14 → 0,19 % (n 500/1000/1500), 0,00 % sans poussière → hypothèse pour le brief V3.
 - T3 : le pic post-coupure à n=1000 (t=1,146) apparaît aussi avec une coupure en rampe → ce n'est pas le geste de coupure.
 - `navier/furniture.py` ajouté (étreintes conformes au brief) ; `vortex.py`, `sph.py`, `tests/` intouchés.
+
+## 02/10/2026 — T3 clos · brief V3 scellé
+
+- T3 : pic réel à t=1,176 (1,146 = aliasing de la grille à 0,06), indépendant de la coupure (+0,05 → −0,006), non convergent en n (1100 : 1,110) → artefact numérique, quarantaine. Annoté dans `campagnes/commissaire-3d/MANIFESTE-RUNS.json`.
+- **La grille de sortie fait partie de l'instrument** — sœur jumelle de R8 : on ne mesure que ce qui déborde du script, et on le mesure là où il est vraiment.
+- Brief V3 rév. 3 + annexe des paramètres figés + `dipoles.py` scellés (`campagnes/dipoles-v3/SCEAU-V3.sha256`) avant tout run.
