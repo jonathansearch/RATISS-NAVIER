@@ -44,3 +44,13 @@ GIF : `demos/eclatement.gif`. Ticket V02 CLOS, V03 TESTÉ.
 ## BOSS FINAL : n=6000 + ν/100 (2026-09-25)
 Ω_max=**72122** (objectif 50k DÉPASSÉ ✅), C_min=0.27, E=138.3, 0 crash.
 Le combo résolution×viscosité libère le monstre. Scène 3D : boss_3d.html.
+
+---
+
+## 01/10/2026 — Campagnes 3D (V2 étreintes + MISSION 3D) · règle R8
+
+- V2 « étreintes » (14 runs) et MISSION 3D (11 runs, critères scellés `c93e4b9c…`) : `campagnes/`.
+- Les deux 🅱 sont annotés **« non tranché (instruments invalidés après coup) »** : ζ mesurait le meuble (ζ = 1,0 sans poussière avec E3).
+- **R8 — on ne mesure que ce qui déborde du script.** Seul signal propre : la part de vorticité hors meuble E3 = 0,11 → 0,14 → 0,19 % (n 500/1000/1500), 0,00 % sans poussière → hypothèse pour le brief V3.
+- T3 : le pic post-coupure à n=1000 (t=1,146) apparaît aussi avec une coupure en rampe → ce n'est pas le geste de coupure.
+- `navier/furniture.py` ajouté (étreintes conformes au brief) ; `vortex.py`, `sph.py`, `tests/` intouchés.

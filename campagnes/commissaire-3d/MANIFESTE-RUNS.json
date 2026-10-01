@@ -1,0 +1,128 @@
+{
+ "campagne": "MISSION 3D — commissaire campagne 2",
+ "criteres_sha256": "c93e4b9c1b0b9584bd7c850789ff4c3d95fece7780c9c89abf84e14cd1391ec6",
+ "runs": [
+  {
+   "tag": "R01_T2_controle",
+   "etreinte": "plate",
+   "n": 500,
+   "eps": 0.01,
+   "dust_seed": 7,
+   "coupure": "sec",
+   "graine_flow": 7,
+   "nu": 0.01,
+   "sha256": "0773ee4ddd4092e87fb0e2ad7bee9ee5aa4bf4f749e6debba92f9630916b8dee"
+  },
+  {
+   "tag": "R02_E3",
+   "etreinte": "E3",
+   "n": 500,
+   "eps": 0.01,
+   "dust_seed": 7,
+   "coupure": "sec",
+   "graine_flow": 7,
+   "nu": 0.01,
+   "sha256": "1587cf43e907839300311cc244272d724efd58d4bea3ec02a9018ed0d3d072fe"
+  },
+  {
+   "tag": "R03_E1",
+   "etreinte": "E1",
+   "n": 500,
+   "eps": 0.01,
+   "dust_seed": 7,
+   "coupure": "sec",
+   "graine_flow": 7,
+   "nu": 0.01,
+   "sha256": "1ea784dac7c7e7268d049c719ba33367e904729096e138820daa69851bb7647f"
+  },
+  {
+   "tag": "R04_E2",
+   "etreinte": "E2",
+   "n": 500,
+   "eps": 0.01,
+   "dust_seed": 7,
+   "coupure": "sec",
+   "graine_flow": 7,
+   "nu": 0.01,
+   "sha256": "5ff8a82d512728c2d1253c759163b2c8ccd5d4661bbc3c11d38738bb6912d4ba"
+  },
+  {
+   "tag": "R05_E3_dust8",
+   "etreinte": "E3",
+   "n": 500,
+   "eps": 0.01,
+   "dust_seed": 8,
+   "coupure": "sec",
+   "graine_flow": 7,
+   "nu": 0.01,
+   "sha256": "dec1c3f19e498545adfa04025c061a53f60a5fcdce65f2f1d52ffd322b0e61a6"
+  },
+  {
+   "tag": "R06_E3_dust0",
+   "etreinte": "E3",
+   "n": 500,
+   "eps": 0.0,
+   "dust_seed": 0,
+   "coupure": "sec",
+   "graine_flow": 7,
+   "nu": 0.01,
+   "sha256": "d35caf3a03c198f86d2912b766fe2b5811ac09e862babe36647d54c74162cda8"
+  },
+  {
+   "tag": "R07_E3_n1000",
+   "etreinte": "E3",
+   "n": 1000,
+   "eps": 0.01,
+   "dust_seed": 7,
+   "coupure": "sec",
+   "graine_flow": 7,
+   "nu": 0.01,
+   "sha256": "94406ada14f288883c2722ce60975bb99aa06959399426b572db8b2cf29dde36"
+  },
+  {
+   "tag": "R08_E3_n1500",
+   "etreinte": "E3",
+   "n": 1500,
+   "eps": 0.01,
+   "dust_seed": 7,
+   "coupure": "sec",
+   "graine_flow": 7,
+   "nu": 0.01,
+   "sha256": "748acaf4c66fb905952a4b1c5dc67b0094e9ff2f27553614285b7a838c29b3ce"
+  },
+  {
+   "tag": "R10_T3_rampe",
+   "etreinte": "plate",
+   "n": 500,
+   "eps": 0.0,
+   "dust_seed": 0,
+   "coupure": "rampe",
+   "graine_flow": 7,
+   "nu": 0.01,
+   "sha256": "5e5521848a4e25dade6537c00afe77bc00f4e3599ae8242fb8449bcedc5830a8"
+  },
+  {
+   "tag": "R11_T3_rampe_n1000",
+   "etreinte": "plate",
+   "n": 1000,
+   "eps": 0.0,
+   "dust_seed": 0,
+   "coupure": "rampe",
+   "graine_flow": 7,
+   "nu": 0.01,
+   "sha256": "cca2a74cd84f834210d8b33f4c279718a1bd31741fc506b0559a03fc2014a470"
+  },
+  {
+   "tag": "R12_sec_n1000",
+   "etreinte": "plate",
+   "n": 1000,
+   "eps": 0.0,
+   "dust_seed": 0,
+   "coupure": "sec",
+   "graine_flow": 7,
+   "nu": 0.01,
+   "sha256": "f4e5eb34ad651ea6ead780f223a8ba04240e60917787fbf2a07b4e346eb35946"
+  }
+ ],
+ "verdict_lettre": "🅱"
+}
