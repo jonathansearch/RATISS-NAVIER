@@ -4,6 +4,7 @@ Ne modifie ni vortex.py, ni sph.py, ni tests/.
 E1 OBSTACLE : pompe actuelle + répulsion statique au centre  F_rep = k·max(0, 1 − r/R_obs)²·êr  (k=10, R_obs=0,6)
 E2 COUDE    : pompe actuelle dont l'axe du swirl est incliné de θ(z) = π·z/L (rotation autour de x̂)
 E3 COURANTS : F = +A·x̂ pour z < L/2, −A·x̂ pour z ≥ L/2 (A=4) — remplace la pompe
+E3b (variante de pureté, brief §2) : idem mais séparé en y — invariance en z conservée
 Coupure à t_cut (défaut 1,0) : 'sec' ou 'rampe' (Δt=0,3). L'obstacle E1 est un meuble : il reste après la coupure.
 """
 import numpy as np
@@ -26,6 +27,10 @@ class Etreinte:
 
     def __call__(self, X, t):
         g, z = self.gain(t), X[:, 2]
+        if self.mode == 'E3b':
+            F = np.zeros_like(X)
+            F[:, 0] = np.where(X[:, 1] < self.L / 2, self.A, -self.A) * g
+            return F
         if self.mode == 'E3':
             F = np.zeros_like(X)
             F[:, 0] = np.where(z < self.L / 2, self.A, -self.A) * g

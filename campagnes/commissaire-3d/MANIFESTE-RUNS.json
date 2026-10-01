@@ -122,6 +122,78 @@
    "graine_flow": 7,
    "nu": 0.01,
    "sha256": "f4e5eb34ad651ea6ead780f223a8ba04240e60917787fbf2a07b4e346eb35946"
+  },
+  {
+   "tag": "R13_E3b",
+   "etreinte": "E3b",
+   "n": 500,
+   "eps": 0.01,
+   "dust_seed": 7,
+   "coupure": "sec",
+   "graine_flow": 7,
+   "nu": 0.01,
+   "sha256": "8769d06631a870931ac9843da87b8910f5883cc330a078b35660953cf51a8336",
+   "phase": "extensions §6 ligne 11+ (02/10), hors verdict initial"
+  },
+  {
+   "tag": "R14_E3b_dust0",
+   "etreinte": "E3b",
+   "n": 500,
+   "eps": 0.0,
+   "dust_seed": 0,
+   "coupure": "sec",
+   "graine_flow": 7,
+   "nu": 0.01,
+   "sha256": "074d7ce7c9ed3f2c9d1ab81a41604f40f6ad78e573846639c7d7041c6c01ca13",
+   "phase": "extensions §6 ligne 11+ (02/10), hors verdict initial"
+  },
+  {
+   "tag": "R15_E3b_dust8",
+   "etreinte": "E3b",
+   "n": 500,
+   "eps": 0.01,
+   "dust_seed": 8,
+   "coupure": "sec",
+   "graine_flow": 7,
+   "nu": 0.01,
+   "sha256": "fed9c94bb2008a10b1e52ccead132426cb109018ab15fc0758c9a44fb10d6ddd",
+   "phase": "extensions §6 ligne 11+ (02/10), hors verdict initial"
+  },
+  {
+   "tag": "R16_E3b_n1000",
+   "etreinte": "E3b",
+   "n": 1000,
+   "eps": 0.01,
+   "dust_seed": 7,
+   "coupure": "sec",
+   "graine_flow": 7,
+   "nu": 0.01,
+   "sha256": "bdef6a3c5ff84927ec2c06e405cddb0f7aa03835f5e601b1b4484593ab21e928",
+   "phase": "extensions §6 ligne 11+ (02/10), hors verdict initial"
+  },
+  {
+   "tag": "R17_E3b_n1500",
+   "etreinte": "E3b",
+   "n": 1500,
+   "eps": 0.01,
+   "dust_seed": 7,
+   "coupure": "sec",
+   "graine_flow": 7,
+   "nu": 0.01,
+   "sha256": "7ef4617dcab73e9299e62d6582553c91a5249e5d6c051e867d3debc262337028",
+   "phase": "extensions §6 ligne 11+ (02/10), hors verdict initial"
+  },
+  {
+   "tag": "R18_E3b_nu0001",
+   "etreinte": "E3b",
+   "n": 500,
+   "eps": 0.01,
+   "dust_seed": 7,
+   "coupure": "sec",
+   "graine_flow": 7,
+   "nu": 0.001,
+   "sha256": "d3d7c491c4cad7c9fbd6397d1202811b7a92c1e4ceff943e86ab538cc9696690",
+   "phase": "extensions §6 ligne 11+ (02/10), hors verdict initial"
   }
  ],
  "verdict_lettre": "🅱",

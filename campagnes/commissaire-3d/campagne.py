@@ -11,8 +11,9 @@ from navier.furniture import Etreinte
 
 tag, mode, n, ds, coup = sys.argv[1], sys.argv[2], int(sys.argv[3]), int(sys.argv[4]), sys.argv[5]
 T = float(sys.argv[6]) if len(sys.argv) > 6 else 2.5
+NU = float(sys.argv[7]) if len(sys.argv) > 7 else 0.01
 EPS = 0.01
-fl = Flow(n=n, nu=0.01, seed=7); fl.settle()
+fl = Flow(n=n, nu=NU, seed=7); fl.settle()
 if ds:
     fl.V += np.random.default_rng(ds).normal(0, EPS, (n, 3))
 F = Etreinte(mode=mode, coupure=coup)
@@ -31,6 +32,6 @@ while fl.t < T:
                     'E': round(fl.energy(), 5), 'vmax': round(fl.vmax(), 4), 'sect': [round(float(x), 4) for x in sect]})
     s += 1
 (HERE / 'runs').mkdir(exist_ok=True)
-json.dump({'tag': tag, 'mode': mode, 'n': n, 'nu': 0.01, 'eps': EPS if ds else 0.0, 'dust_seed': ds, 'coupure': coup,
+json.dump({'tag': tag, 'mode': mode, 'n': n, 'nu': NU, 'eps': EPS if ds else 0.0, 'dust_seed': ds, 'coupure': coup,
            't_cut': 1.0, 'T': T, 'secondes': round(time.time() - t0), 'serie': out}, open(HERE / 'runs' / f'{tag}.json', 'w'))
 print(tag, round(time.time() - t0), 's ok', flush=True)

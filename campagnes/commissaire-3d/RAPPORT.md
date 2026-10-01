@@ -19,7 +19,20 @@ n=1000 : coupure sèche ×3,58 à t=1,146 ; coupure en rampe ×3,15 à t=1,146 �
 ## Déviation R5
 Campagne v0 (`v0-deviation/`) lancée avant réception du brief, étreintes non conformes : exclue du verdict.
 
-## Annotation (append-only, 01/10/2026)
-**Statut du 🅱 : NON TRANCHÉ — instruments invalidés après coup** (ζ contaminé par le meuble, M2/M3 positifs dans les témoins négatifs).
-L'« instrument du reste » (0,11 → 0,14 → 0,19 %, 0,00 % sans poussière) devient la règle **R8** du labo
-(module `ratiss.residual`, RATISS-Framework) et entre dans le prochain brief comme **hypothèse scellable**, pas comme résultat.
+## Extensions (02/10/2026, append-only) — E3b + carte de régime (§2 variante de pureté, §6 ligne 11+)
+Critères : ceux scellés (c93e4b9c…), inchangés. Échantillonnage du code d'origine (tous les 10 pas) : les dates ci-dessous sont **aliasées**.
+E3b = deux courants séparés en y : le meuble n'impose que ω_z → ζ n'est PAS contaminé (contrairement à E3).
+
+| Run | n | poussière | ν | ζ moyen (t≥0,5) | ζ>0,10 soutenu | Ωmax post-coupure |
+|---|---|---|---|---|---|---|
+| R13 | 500 | 7 | 0,01 | 0,0013 | 0 | 1,146 |
+| R15 | 500 | 8 | 0,01 | 0,0012 | 0 | 1,146 |
+| R14 | 500 | 0 | 0,01 | 0,0000 | 0 | 1,146 |
+| R16 | 1000 | 7 | 0,01 | 0,0017 | 0 | 1,686 |
+| R17 | 1500 | 7 | 0,01 | 0,0014 | 0 | 1,086 (1er éch. → pas d'événement) |
+| R18 | 500 | 7 | 0,001 | 0,0019 | 0 | 2,466 |
+
+Lecture : la mesure propre (E3b) retrouve le niveau de l'instrument du reste sous E3 (0,11–0,19 %), sans le meuble.
+Ça vient seulement de la poussière (0 sans poussière, insensible à la graine), plat en n (ne fond pas, ne monte pas), loin de 0,10.
+M3 positive partout, y compris dust-0 (instrument mort, confirmé). Pas de date convergente.
+À la lettre : ζ < 0,02 mais ne fond pas → 🅾 refusé, 🅱 (« sinon »). Sonde police (1 run) : ν÷10 → 0,13 → 0,19 % (orientation, pas preuve).
