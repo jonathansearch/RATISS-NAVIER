@@ -15,3 +15,7 @@ Analyse : `python3 temoins.py` → `TEMOINS.json`.
 - le plancher T1 ne mesure pas l'effet de la poussière seule (le témoin pertinent serait T0) ;
 - tension entre les dipôles injectés et le §10.2 du brief MISSION 3D.
 Aucun run des graines A et B n'a été lancé. Suite : signature ou amendement des paramètres par le chef.
+
+## 02/10/2026 — rév. 4 scellée (sur ordre du chef)
+Le STOP de T0 est levé (voir `diagnostic/DIAGNOSTIC-OMEGA.md`). Critères : `PARAMETRES-REV4.md`, code `dipoles_v4.py`, sceau `SCEAU-V3-REV4.sha256`.
+Crow non prouvé, ω biaisé, cœurs non résolus → rév. 5. Aucun run rév. 4 lancé au moment du sceau.
