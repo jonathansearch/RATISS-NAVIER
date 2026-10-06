@@ -7,9 +7,9 @@
 <p align="center">
 <img src="https://img.shields.io/badge/Boss-%CE%A9%3D72k-red.svg" alt="Boss"/>
 <img src="https://img.shields.io/badge/Tests-green-brightgreen.svg" alt="Tests"/>
-<img src="https://img.shields.io/badge/M%C3%A9thode-SPH_3D-blue.svg" alt="Method"/>
+<img src="https://img.shields.io/badge/Method-SPH_3D-blue.svg" alt="Method"/>
 <img src="https://img.shields.io/badge/Visu-Three.js-purple.svg" alt="Three.js"/>
-<img src="https://img.shields.io/badge/Licence-MIT-yellow.svg" alt="MIT"/>
+<img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT"/>
 </p>
 
 <p align="center"><img src="images/hero-navier.png" width="100%" alt="3D turbulence"/></p>
